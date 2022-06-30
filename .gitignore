@@ -143,3 +143,4 @@
 
 /out
 *.onetoc2
+.DS_Store

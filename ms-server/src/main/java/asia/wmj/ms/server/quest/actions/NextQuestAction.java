@@ -1,0 +1,55 @@
+/*
+ This file is part of the OdinMS Maple Story Server
+ Copyright (C) 2008 Patrick Huy <patrick.huy@frz.cc>
+ Matthias Butz <matze@odinms.de>
+ Jan Christian Meyer <vimes@odinms.de>
+
+ This program is free software: you can redistribute it and/or modify
+ it under the terms of the GNU Affero General Public License as
+ published by the Free Software Foundation version 3 as published by
+ the Free Software Foundation. You may not use, modify or distribute
+ this program under any other version of the GNU Affero General Public
+ License.
+
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU Affero General Public License for more details.
+
+ You should have received a copy of the GNU Affero General Public License
+ along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+package asia.wmj.ms.server.quest.actions;
+
+import asia.wmj.ms.client.MapleCharacter;
+import asia.wmj.ms.client.MapleQuestStatus;
+import asia.wmj.ms.provider.MapleData;
+import asia.wmj.ms.provider.MapleDataTool;
+import asia.wmj.ms.server.quest.MapleQuest;
+import asia.wmj.ms.server.quest.MapleQuestActionType;
+import asia.wmj.ms.tools.MaplePacketCreator;
+
+/**
+ *
+ * @author Tyler (Twdtwd)
+ */
+public class NextQuestAction extends MapleQuestAction {
+	int nextQuest;
+	
+	public NextQuestAction(MapleQuest quest, MapleData data) {
+		super(MapleQuestActionType.NEXTQUEST, quest);
+		processData(data);
+	}
+	
+	
+	@Override
+	public void processData(MapleData data) {
+		nextQuest = MapleDataTool.getInt(data);
+	}
+	
+	@Override
+	public void run(MapleCharacter chr, Integer extSelection) {
+		MapleQuestStatus status = chr.getQuest(MapleQuest.getInstance(questID));
+		chr.announce(MaplePacketCreator.updateQuestFinish((short) questID, status.getNpc(), (short) nextQuest));
+	}
+} 

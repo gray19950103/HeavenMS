@@ -1,143 +1,145 @@
 ﻿/logs/**
 .idea/
+*.iml
 
 # build files
 
 /build/
 /dist/
 /nbproject/
+/target/
 
-/tools/MapleArrowFetcher/build/
-/tools/MapleArrowFetcher/dist/
-/tools/MapleArrowFetcher/nbproject/
+/ms-tools/MapleArrowFetcher/build/
+/ms-tools/MapleArrowFetcher/dist/
+/ms-tools/MapleArrowFetcher/nbproject/
 
-/tools/MapleBossHpBarFetcher/build/
-/tools/MapleBossHpBarFetcher/dist/
-/tools/MapleBossHpBarFetcher/nbproject/
+/ms-tools/MapleBossHpBarFetcher/build/
+/ms-tools/MapleBossHpBarFetcher/dist/
+/ms-tools/MapleBossHpBarFetcher/nbproject/
 
-/tools/MapleCashCosmeticsChecker/build/
-/tools/MapleCashCosmeticsChecker/dist/
-/tools/MapleCashCosmeticsChecker/nbproject/
+/ms-tools/MapleCashCosmeticsChecker/build/
+/ms-tools/MapleCashCosmeticsChecker/dist/
+/ms-tools/MapleCashCosmeticsChecker/nbproject/
 
-/tools/MapleCashCosmeticsFetcher/build/
-/tools/MapleCashCosmeticsFetcher/dist/
-/tools/MapleCashCosmeticsFetcher/nbproject/
+/ms-tools/MapleCashCosmeticsFetcher/build/
+/ms-tools/MapleCashCosmeticsFetcher/dist/
+/ms-tools/MapleCashCosmeticsFetcher/nbproject/
 
-/tools/MapleCashDropFetcher/build/
-/tools/MapleCashDropFetcher/dist/
-/tools/MapleCashDropFetcher/nbproject/
+/ms-tools/MapleCashDropFetcher/build/
+/ms-tools/MapleCashDropFetcher/dist/
+/ms-tools/MapleCashDropFetcher/nbproject/
 
-/tools/MapleCashVegaChecker/build/
-/tools/MapleCashVegaChecker/dist/
-/tools/MapleCashVegaChecker/nbproject/
+/ms-tools/MapleCashVegaChecker/build/
+/ms-tools/MapleCashVegaChecker/dist/
+/ms-tools/MapleCashVegaChecker/nbproject/
 
-/tools/MapleCodeCouponGenerator/build/
-/tools/MapleCodeCouponGenerator/dist/
-/tools/MapleCodeCouponGenerator/nbproject/
+/ms-tools/MapleCodeCouponGenerator/build/
+/ms-tools/MapleCodeCouponGenerator/dist/
+/ms-tools/MapleCodeCouponGenerator/nbproject/
 
-/tools/MapleCouponInstaller/build/
-/tools/MapleCouponInstaller/dist/
-/tools/MapleCouponInstaller/nbproject/
+/ms-tools/MapleCouponInstaller/build/
+/ms-tools/MapleCouponInstaller/dist/
+/ms-tools/MapleCouponInstaller/nbproject/
 
-/tools/MapleDojoUpdater/build/
-/tools/MapleDojoUpdater/dist/
-/tools/MapleDojoUpdater/nbproject/
+/ms-tools/MapleDojoUpdater/build/
+/ms-tools/MapleDojoUpdater/dist/
+/ms-tools/MapleDojoUpdater/nbproject/
 
-/tools/MapleEmptyItemWzChecker/build/
-/tools/MapleEmptyItemWzChecker/dist/
-/tools/MapleEmptyItemWzChecker/nbproject/
+/ms-tools/MapleEmptyItemWzChecker/build/
+/ms-tools/MapleEmptyItemWzChecker/dist/
+/ms-tools/MapleEmptyItemWzChecker/nbproject/
 
-/tools/MapleEquipmentOmnileveler/build/
-/tools/MapleEquipmentOmnileveler/dist/
-/tools/MapleEquipmentOmnileveler/nbproject/
+/ms-tools/MapleEquipmentOmnileveler/build/
+/ms-tools/MapleEquipmentOmnileveler/dist/
+/ms-tools/MapleEquipmentOmnileveler/nbproject/
 
-/tools/MapleEventMethodFiller/build/
-/tools/MapleEventMethodFiller/dist/
-/tools/MapleEventMethodFiller/nbproject/
+/ms-tools/MapleEventMethodFiller/build/
+/ms-tools/MapleEventMethodFiller/dist/
+/ms-tools/MapleEventMethodFiller/nbproject/
 
-/tools/MapleGachaponItemidRetriever/build/
-/tools/MapleGachaponItemidRetriever/dist/
-/tools/MapleGachaponItemidRetriever/nbproject/
+/ms-tools/MapleGachaponItemidRetriever/build/
+/ms-tools/MapleGachaponItemidRetriever/dist/
+/ms-tools/MapleGachaponItemidRetriever/nbproject/
 
-/tools/MapleIdRetriever/build/
-/tools/MapleIdRetriever/dist/
-/tools/MapleIdRetriever/nbproject/
+/ms-tools/MapleIdRetriever/build/
+/ms-tools/MapleIdRetriever/dist/
+/ms-tools/MapleIdRetriever/nbproject/
 
-/tools/MapleInvalidItemIdFetcher/build/
-/tools/MapleInvalidItemIdFetcher/dist/
-/tools/MapleInvalidItemIdFetcher/nbproject/
+/ms-tools/MapleInvalidItemIdFetcher/build/
+/ms-tools/MapleInvalidItemIdFetcher/dist/
+/ms-tools/MapleInvalidItemIdFetcher/nbproject/
 
-/tools/MapleInvalidItemWithNoNameFetcher/build/
-/tools/MapleInvalidItemWithNoNameFetcher/dist/
-/tools/MapleInvalidItemWithNoNameFetcher/nbproject/
+/ms-tools/MapleInvalidItemWithNoNameFetcher/build/
+/ms-tools/MapleInvalidItemWithNoNameFetcher/dist/
+/ms-tools/MapleInvalidItemWithNoNameFetcher/nbproject/
 
-/tools/MapleMapFieldLimitChecker/build/
-/tools/MapleMapFieldLimitChecker/dist/
-/tools/MapleMapFieldLimitChecker/nbproject/
+/ms-tools/MapleMapFieldLimitChecker/build/
+/ms-tools/MapleMapFieldLimitChecker/dist/
+/ms-tools/MapleMapFieldLimitChecker/nbproject/
 
-/tools/MapleMapInfoRetriever/build/
-/tools/MapleMapInfoRetriever/dist/
-/tools/MapleMapInfoRetriever/nbproject/
+/ms-tools/MapleMapInfoRetriever/build/
+/ms-tools/MapleMapInfoRetriever/dist/
+/ms-tools/MapleMapInfoRetriever/nbproject/
 
-/tools/MapleMapLootLimitChecker/build/
-/tools/MapleMapLootLimitChecker/dist/
-/tools/MapleMapLootLimitChecker/nbproject/
+/ms-tools/MapleMapLootLimitChecker/build/
+/ms-tools/MapleMapLootLimitChecker/dist/
+/ms-tools/MapleMapLootLimitChecker/nbproject/
 
-/tools/MapleMesoFetcher/build/
-/tools/MapleMesoFetcher/dist/
-/tools/MapleMesoFetcher/nbproject/
+/ms-tools/MapleMesoFetcher/build/
+/ms-tools/MapleMesoFetcher/dist/
+/ms-tools/MapleMesoFetcher/nbproject/
 
-/tools/MapleMobBookIndexer/build/
-/tools/MapleMobBookIndexer/dist/
-/tools/MapleMobBookIndexer/nbproject/
+/ms-tools/MapleMobBookIndexer/build/
+/ms-tools/MapleMobBookIndexer/dist/
+/ms-tools/MapleMobBookIndexer/nbproject/
 
-/tools/MapleMobBookUpdate/build/
-/tools/MapleMobBookUpdate/dist/
-/tools/MapleMobBookUpdate/nbproject/
+/ms-tools/MapleMobBookUpdate/build/
+/ms-tools/MapleMobBookUpdate/dist/
+/ms-tools/MapleMobBookUpdate/nbproject/
 
-/tools/MapleQuestItemCountFetcher/build/
-/tools/MapleQuestItemCountFetcher/dist/
-/tools/MapleQuestItemCountFetcher/nbproject/
+/ms-tools/MapleQuestItemCountFetcher/build/
+/ms-tools/MapleQuestItemCountFetcher/dist/
+/ms-tools/MapleQuestItemCountFetcher/nbproject/
 
-/tools/MapleQuestItemFetcher/build/
-/tools/MapleQuestItemFetcher/dist/
-/tools/MapleQuestItemFetcher/nbproject/
+/ms-tools/MapleQuestItemFetcher/build/
+/ms-tools/MapleQuestItemFetcher/dist/
+/ms-tools/MapleQuestItemFetcher/nbproject/
 
-/tools/MapleQuestlineFetcher/build/
-/tools/MapleQuestlineFetcher/dist/
-/tools/MapleQuestlineFetcher/nbproject/
+/ms-tools/MapleQuestlineFetcher/build/
+/ms-tools/MapleQuestlineFetcher/dist/
+/ms-tools/MapleQuestlineFetcher/nbproject/
 
-/tools/MapleQuestMesoFetcher/build/
-/tools/MapleQuestMesoFetcher/dist/
-/tools/MapleQuestMesoFetcher/nbproject/
+/ms-tools/MapleQuestMesoFetcher/build/
+/ms-tools/MapleQuestMesoFetcher/dist/
+/ms-tools/MapleQuestMesoFetcher/nbproject/
 
-/tools/MapleReactorDropFetcher/build/
-/tools/MapleReactorDropFetcher/dist/
-/tools/MapleReactorDropFetcher/nbproject/
+/ms-tools/MapleReactorDropFetcher/build/
+/ms-tools/MapleReactorDropFetcher/dist/
+/ms-tools/MapleReactorDropFetcher/nbproject/
 
-/tools/MapleSkillbookChanceFetcher/build/
-/tools/MapleSkillbookChanceFetcher/dist/
-/tools/MapleSkillbookChanceFetcher/nbproject/
+/ms-tools/MapleSkillbookChanceFetcher/build/
+/ms-tools/MapleSkillbookChanceFetcher/dist/
+/ms-tools/MapleSkillbookChanceFetcher/nbproject/
 
-/tools/MapleSkillbookStackUpdate/build/
-/tools/MapleSkillbookStackUpdate/dist/
-/tools/MapleSkillbookStackUpdate/nbproject/
+/ms-tools/MapleSkillbookStackUpdate/build/
+/ms-tools/MapleSkillbookStackUpdate/dist/
+/ms-tools/MapleSkillbookStackUpdate/nbproject/
 
-/tools/MapleSkillMakerFetcher/build/
-/tools/MapleSkillMakerFetcher/dist/
-/tools/MapleSkillMakerFetcher/nbproject/
+/ms-tools/MapleSkillMakerFetcher/build/
+/ms-tools/MapleSkillMakerFetcher/dist/
+/ms-tools/MapleSkillMakerFetcher/nbproject/
 
-/tools/MapleSkillMakerReagentIndexer/build/
-/tools/MapleSkillMakerReagentIndexer/dist/
-/tools/MapleSkillMakerReagentIndexer/nbproject/
+/ms-tools/MapleSkillMakerReagentIndexer/build/
+/ms-tools/MapleSkillMakerReagentIndexer/dist/
+/ms-tools/MapleSkillMakerReagentIndexer/nbproject/
 
-/tools/MapleWorldmapChecker/build/
-/tools/MapleWorldmapChecker/dist/
-/tools/MapleWorldmapChecker/nbproject/
+/ms-tools/MapleWorldmapChecker/build/
+/ms-tools/MapleWorldmapChecker/dist/
+/ms-tools/MapleWorldmapChecker/nbproject/
 
-/tools/SpiderDropFetcher/build/
-/tools/SpiderDropFetcher/dist/
-/tools/SpiderDropFetcher/nbproject/
+/ms-tools/SpiderDropFetcher/build/
+/ms-tools/SpiderDropFetcher/dist/
+/ms-tools/SpiderDropFetcher/nbproject/
 
 /out
 *.onetoc2

@@ -1,0 +1,50 @@
+/*
+	This file is part of the OdinMS Maple Story Server
+    Copyright (C) 2008 Patrick Huy <patrick.huy@frz.cc>
+		       Matthias Butz <matze@odinms.de>
+		       Jan Christian Meyer <vimes@odinms.de>
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as
+    published by the Free Software Foundation version 3 as published by
+    the Free Software Foundation. You may not use, modify or distribute
+    this program under any other version of the GNU Affero General Public
+    License.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Affero General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+*/
+package asia.wmj.ms.net.server.channel.handlers;
+
+import asia.wmj.ms.client.MapleCharacter;
+import asia.wmj.ms.client.MapleClient;
+import asia.wmj.ms.net.AbstractMaplePacketHandler;
+import asia.wmj.ms.net.server.coordinator.world.MapleInviteCoordinator;
+import asia.wmj.ms.net.server.coordinator.world.MapleInviteCoordinator.InviteResult;
+import asia.wmj.ms.net.server.coordinator.world.MapleInviteCoordinator.InviteType;
+import asia.wmj.ms.tools.MaplePacketCreator;
+import asia.wmj.ms.tools.data.input.SeekableLittleEndianAccessor;
+
+public final class DenyPartyRequestHandler extends AbstractMaplePacketHandler {
+    
+    @Override
+    public final void handlePacket(SeekableLittleEndianAccessor slea, MapleClient c) {
+        slea.readByte();
+        String[] cname = slea.readMapleAsciiString().split("PS: ");
+        
+        MapleCharacter cfrom = c.getChannelServer().getPlayerStorage().getCharacterByName(cname[cname.length - 1]);
+        if (cfrom != null) {
+            MapleCharacter chr = c.getPlayer();
+            
+            if (MapleInviteCoordinator.answerInvite(InviteType.PARTY, chr.getId(), cfrom.getPartyId(), false).result == InviteResult.DENIED) {
+                chr.updatePartySearchAvailability(chr.getParty() == null);
+                cfrom.getClient().announce(MaplePacketCreator.partyStatusMessage(23, chr.getName()));
+            }
+        }
+    }
+}

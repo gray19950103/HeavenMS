@@ -17,8 +17,16 @@ import asia.wmj.ms.config.YamlConfig;
  */
 public class DatabaseConnection {
     private static HikariDataSource ds;
+    private static String url;
+    private static String user;
+    private static String pass;
     
     public static Connection getConnection() throws SQLException {
+
+        url = System.getProperty("db.url") == null ? YamlConfig.config.server.DB_URL : System.getProperty("db.url");
+        user = System.getProperty("db.user") == null ? YamlConfig.config.server.DB_USER : System.getProperty("db.user");
+        pass = System.getProperty("db.pass") == null ? YamlConfig.config.server.DB_PASS : System.getProperty("db.pass");
+
         if(ds != null) {
             try {
                 return ds.getConnection();
@@ -30,7 +38,7 @@ public class DatabaseConnection {
         int denies = 0;
         while(true) {   // There is no way it can pass with a null out of here?
             try {
-                return DriverManager.getConnection(YamlConfig.config.server.DB_URL, YamlConfig.config.server.DB_USER, YamlConfig.config.server.DB_PASS);
+                return DriverManager.getConnection(url, user, pass);
             } catch (SQLException sqle) {
                 denies++;
                 

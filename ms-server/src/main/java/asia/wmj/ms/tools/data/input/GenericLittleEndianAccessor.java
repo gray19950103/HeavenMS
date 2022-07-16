@@ -47,7 +47,7 @@ public class GenericLittleEndianAccessor implements LittleEndianAccessor {
      * Read a single byte from the stream.
      *
      * @return The byte read.
-     * @see tools.data.input.ByteInputStream#readByte
+     * @see asia.wmj.ms.tools.data.input.ByteInputStream#readByte
      */
     @Override
     public byte readByte() {
@@ -129,7 +129,7 @@ public class GenericLittleEndianAccessor implements LittleEndianAccessor {
      * @return The string read.
      */
     public final String readAsciiString(int n) {
-        char ret[] = new char[n];
+        char[] ret = new char[n];
         for (int x = 0; x < n; x++) {
             ret[x] = (char) readByte();
         }
@@ -163,7 +163,7 @@ public class GenericLittleEndianAccessor implements LittleEndianAccessor {
      * Gets the number of bytes read from the stream so far.
      *
      * @return A long integer representing the number of bytes read.
-     * @see tools.data.input.ByteInputStream#getBytesRead()
+     * @see asia.wmj.ms.tools.data.input.ByteInputStream#getBytesRead()
      */
     public long getBytesRead() {
         return bs.getBytesRead();
@@ -222,7 +222,7 @@ public class GenericLittleEndianAccessor implements LittleEndianAccessor {
     }
 
     /**
-     * @see tools.data.input.ByteInputStream#available
+     * @see asia.wmj.ms.tools.data.input.ByteInputStream#available
      */
     @Override
     public long available() {

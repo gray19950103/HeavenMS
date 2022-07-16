@@ -51,7 +51,7 @@ import asia.wmj.ms.tools.*;
 
 import asia.wmj.ms.net.server.Server;
 import asia.wmj.ms.net.server.coordinator.session.MapleSessionCoordinator;
-import asia.wmj.ms.net.server.coordinator.session.MapleSessionCoordinator.AntiMulticlientResult;
+import asia.wmj.ms.net.server.coordinator.session.MapleSessionCoordinator.AntiMultiClientResult;
 import asia.wmj.ms.net.server.channel.Channel;
 import asia.wmj.ms.net.server.guild.MapleGuild;
 import asia.wmj.ms.net.server.guild.MapleGuildCharacter;
@@ -606,7 +606,7 @@ public class MapleClient {
         }
 
         if (loginok == 0 || loginok == 4) {
-            AntiMulticlientResult res = MapleSessionCoordinator.getInstance().attemptLoginSession(session, nibbleHwid, accId, loginok == 4);
+            AntiMultiClientResult res = MapleSessionCoordinator.getInstance().attemptLoginSession(session, nibbleHwid, accId, loginok == 4);
             switch (res) {
                 case SUCCESS:
                     if (loginok == 0) {
@@ -647,9 +647,9 @@ public class MapleClient {
             if (!rs.next()) {
                 return null;
             }
-            long blubb = rs.getLong("tempban");
+            long blubb = rs.getTimestamp("tempban").getTime();
 
-            if (blubb == 0 || rs.getString("tempban").equals("2018-06-20 00:00:00.0")) { // 0000-00-00 or 2018-06-20 (default set in LoginPasswordHandler)
+            if (blubb == 0 || rs.getString("tempban").equals("2018-06-20 00:00:00")) { // 0000-00-00 or 2018-06-20 (default set in LoginPasswordHandler)
                 return null;
             }
             lTempban.setTimeInMillis(rs.getTimestamp("tempban").getTime());

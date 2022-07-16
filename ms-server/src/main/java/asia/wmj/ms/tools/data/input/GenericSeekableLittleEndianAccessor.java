@@ -30,7 +30,7 @@ import java.io.IOException;
  * @author Frz
  * @version 1.0
  * @since Revision 323
- * @see tools.data.input.GenericLittleEndianAccessor
+ * @see asia.wmj.ms.tools.data.input.GenericLittleEndianAccessor
  */
 public class GenericSeekableLittleEndianAccessor extends GenericLittleEndianAccessor implements SeekableLittleEndianAccessor {
     private SeekableInputStreamBytestream bs;
@@ -50,7 +50,7 @@ public class GenericSeekableLittleEndianAccessor extends GenericLittleEndianAcce
      * Seek the pointer to <code>offset</code>
      *
      * @param offset The offset to seek to.
-     * @see tools.data.input.SeekableInputStreamBytestream#seek
+     * @see asia.wmj.ms.tools.data.input.SeekableInputStreamBytestream#seek
      */
     @Override
     public void seek(long offset) {
@@ -66,7 +66,7 @@ public class GenericSeekableLittleEndianAccessor extends GenericLittleEndianAcce
      * Get the current position of the pointer.
      *
      * @return The current position of the pointer as a long integer.
-     * @see tools.data.input.SeekableInputStreamBytestream#getPosition
+     * @see asia.wmj.ms.tools.data.input.SeekableInputStreamBytestream#getPosition
      */
     @Override
     public long getPosition() {

@@ -906,9 +906,9 @@ public class Server {
         CashItemFactory.getSpecialCashItems();
         System.out.println("Items loaded in " + ((System.currentTimeMillis() - timeToTake) / 1000.0) + " seconds");
         
-	timeToTake = System.currentTimeMillis();
-	MapleQuest.loadAllQuest();
-	System.out.println("Quest loaded in " + ((System.currentTimeMillis() - timeToTake) / 1000.0) + " seconds\r\n");
+        timeToTake = System.currentTimeMillis();
+        MapleQuest.loadAllQuest();
+        System.out.println("Quest loaded in " + ((System.currentTimeMillis() - timeToTake) / 1000.0) + " seconds\r\n");
 	
         NewYearCardRecord.startPendingNewYearCardRequests();
         

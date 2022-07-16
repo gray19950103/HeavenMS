@@ -10,12 +10,12 @@ import asia.wmj.ms.tools.MaplePacketCreator;
 import asia.wmj.ms.tools.data.input.SeekableLittleEndianAccessor;
 import asia.wmj.ms.client.MapleClient;
 import asia.wmj.ms.net.server.coordinator.session.MapleSessionCoordinator;
-import asia.wmj.ms.net.server.coordinator.session.MapleSessionCoordinator.AntiMulticlientResult;
+import asia.wmj.ms.net.server.coordinator.session.MapleSessionCoordinator.AntiMultiClientResult;
 import org.apache.mina.core.session.IoSession;
 
 public final class RegisterPicHandler extends AbstractMaplePacketHandler {
 
-    private static int parseAntiMulticlientError(AntiMulticlientResult res) {
+    private static int parseAntiMulticlientError(AntiMultiClientResult res) {
         switch (res) {
             case REMOTE_PROCESSING:
                 return 10;
@@ -51,8 +51,8 @@ public final class RegisterPicHandler extends AbstractMaplePacketHandler {
         c.updateHWID(hwid);
         
         IoSession session = c.getSession();
-        AntiMulticlientResult res = MapleSessionCoordinator.getInstance().attemptGameSession(session, c.getAccID(), hwid);
-        if (res != AntiMulticlientResult.SUCCESS) {
+        AntiMultiClientResult res = MapleSessionCoordinator.getInstance().attemptGameSession(session, c.getAccID(), hwid);
+        if (res != AntiMultiClientResult.SUCCESS) {
             c.announce(MaplePacketCreator.getAfterLoginError(parseAntiMulticlientError(res)));
             return;
         }

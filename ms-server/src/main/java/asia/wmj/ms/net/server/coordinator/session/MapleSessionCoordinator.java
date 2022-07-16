@@ -60,7 +60,7 @@ public class MapleSessionCoordinator {
         return instance;
     }
     
-    public enum AntiMulticlientResult {
+    public enum AntiMultiClientResult {
         SUCCESS,
         REMOTE_LOGGEDIN,
         REMOTE_REACHED_LIMIT,
@@ -342,10 +342,10 @@ public class MapleSessionCoordinator {
         }
     }
 
-    public AntiMulticlientResult attemptLoginSession(IoSession session, String nibbleHwid, int accountId, boolean routineCheck) {
+    public AntiMultiClientResult attemptLoginSession(IoSession session, String nibbleHwid, int accountId, boolean routineCheck) {
         if (!YamlConfig.config.server.DETERRED_MULTICLIENT) {
             session.setAttribute(MapleClient.CLIENT_NIBBLEHWID, nibbleHwid);
-            return AntiMulticlientResult.SUCCESS;
+            return AntiMultiClientResult.SUCCESS;
         }
 
         String remoteHost = getSessionRemoteHost(session);
@@ -357,7 +357,7 @@ public class MapleSessionCoordinator {
                 if (lock.tryLock()) {
                     try {
                         if (pooledRemoteHosts.contains(remoteHost)) {
-                            return AntiMulticlientResult.REMOTE_PROCESSING;
+                            return AntiMultiClientResult.REMOTE_PROCESSING;
                         }
 
                         pooledRemoteHosts.add(remoteHost);
@@ -368,7 +368,7 @@ public class MapleSessionCoordinator {
                     break;
                 } else {
                     if(tries == 2) {
-                        return AntiMulticlientResult.COORDINATOR_ERROR;
+                        return AntiMultiClientResult.COORDINATOR_ERROR;
                     }
                     tries++;
 
@@ -377,32 +377,32 @@ public class MapleSessionCoordinator {
             }
         } catch (Exception e) {
             e.printStackTrace();
-            return AntiMulticlientResult.COORDINATOR_ERROR;
+            return AntiMultiClientResult.COORDINATOR_ERROR;
         }
 
         try {
             if (!loginStorage.registerLogin(accountId)) {
-                return AntiMulticlientResult.MANY_ACCOUNT_ATTEMPTS;
+                return AntiMultiClientResult.MANY_ACCOUNT_ATTEMPTS;
             }
 
             if (!routineCheck) {
                 if (onlineRemoteHwids.contains(nibbleHwid)) {
-                    return AntiMulticlientResult.REMOTE_LOGGEDIN;
+                    return AntiMultiClientResult.REMOTE_LOGGEDIN;
                 }
 
                 if (!attemptAccessAccount(nibbleHwid, accountId, routineCheck)) {
-                    return AntiMulticlientResult.REMOTE_REACHED_LIMIT;
+                    return AntiMultiClientResult.REMOTE_REACHED_LIMIT;
                 }
 
                 session.setAttribute(MapleClient.CLIENT_NIBBLEHWID, nibbleHwid);
                 onlineRemoteHwids.add(nibbleHwid);
             } else {
                 if (!attemptAccessAccount(nibbleHwid, accountId, routineCheck)) {
-                    return AntiMulticlientResult.REMOTE_REACHED_LIMIT;
+                    return AntiMultiClientResult.REMOTE_REACHED_LIMIT;
                 }
             }
 
-            return AntiMulticlientResult.SUCCESS;
+            return AntiMultiClientResult.SUCCESS;
         } finally {
             lock.lock();
             try {
@@ -413,12 +413,12 @@ public class MapleSessionCoordinator {
         }
     }
 
-    public AntiMulticlientResult attemptGameSession(IoSession session, int accountId, String remoteHwid) {
+    public AntiMultiClientResult attemptGameSession(IoSession session, int accountId, String remoteHwid) {
         String remoteHost = getSessionRemoteHost(session);
         if (!YamlConfig.config.server.DETERRED_MULTICLIENT) {
             associateRemoteHostHwid(remoteHost, remoteHwid);
             associateRemoteHostHwid(getSessionRemoteAddress(session), remoteHwid);  // no HWID information on the loggedin newcomer session...
-            return AntiMulticlientResult.SUCCESS;
+            return AntiMultiClientResult.SUCCESS;
         }
         
         Lock lock = getCoodinatorLock(remoteHost);
@@ -428,7 +428,7 @@ public class MapleSessionCoordinator {
                 if (lock.tryLock()) {
                     try {
                         if (pooledRemoteHosts.contains(remoteHost)) {
-                            return AntiMulticlientResult.REMOTE_PROCESSING;
+                            return AntiMultiClientResult.REMOTE_PROCESSING;
                         }
                         
                         pooledRemoteHosts.add(remoteHost);
@@ -439,7 +439,7 @@ public class MapleSessionCoordinator {
                     break;
                 } else {
                     if(tries == 2) {
-                        return AntiMulticlientResult.COORDINATOR_ERROR;
+                        return AntiMultiClientResult.COORDINATOR_ERROR;
                     }
                     tries++;
                     
@@ -448,7 +448,7 @@ public class MapleSessionCoordinator {
             }
         } catch (Exception e) {
             e.printStackTrace();
-            return AntiMulticlientResult.COORDINATOR_ERROR;
+            return AntiMultiClientResult.COORDINATOR_ERROR;
         }
         
         try {
@@ -466,15 +466,15 @@ public class MapleSessionCoordinator {
                         associateRemoteHostHwid(getSessionRemoteAddress(session), remoteHwid);
                         associateHwidAccountIfAbsent(remoteHwid, accountId);
 
-                        return AntiMulticlientResult.SUCCESS;
+                        return AntiMultiClientResult.SUCCESS;
                     } else {
-                        return AntiMulticlientResult.REMOTE_LOGGEDIN;
+                        return AntiMultiClientResult.REMOTE_LOGGEDIN;
                     }
                 } else {
-                    return AntiMulticlientResult.REMOTE_NO_MATCH;
+                    return AntiMultiClientResult.REMOTE_NO_MATCH;
                 }
             } else {
-                return AntiMulticlientResult.REMOTE_NO_MATCH;
+                return AntiMultiClientResult.REMOTE_NO_MATCH;
             }
         } finally {
             lock.lock();

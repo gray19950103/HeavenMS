@@ -58,7 +58,7 @@ public class RankingLoginTask implements Runnable {
             charSelect.setInt(2, job);
         }
         ResultSet rs = charSelect.executeQuery();
-        PreparedStatement ps = con.prepareStatement("UPDATE characters SET " + (job != -1 ? "jobRank = ?, jobRankMove = ? " : "rank = ?, rankMove = ? ") + "WHERE id = ?");
+        PreparedStatement ps = con.prepareStatement("UPDATE characters c SET " + (job != -1 ? "jobRank = ?, jobRankMove = ? " : "c.rank = ?, c.rankMove = ? ") + "WHERE c.id = ?");
         int rank = 0;
         
         while (rs.next()) {
